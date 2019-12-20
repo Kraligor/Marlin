@@ -1944,11 +1944,11 @@
  *
  */
 #if ENABLED (GTA30) || ENABLED (GTE180) || ENABLED (GTD200) || ENABLED (GTM201)
-#define SDSUPPORT
 #define SDIO_SUPPORT
-#else
 #define SDSUPPORT
 #endif
+
+//#endif
 
 /**
  * SD CARD: SPI SPEED
@@ -2199,6 +2199,7 @@
 // RepRapDiscount FULL GRAPHIC Smart Controller
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
+#if DISABLED (NOSCREEN)
 #if ENABLED (GTA20)
 #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 #define ST7920_DELAY_1 DELAY_NS(200)
@@ -2206,10 +2207,13 @@
 #define ST7920_DELAY_3 DELAY_NS(200)
 #define ULTIPANEL
 #define NEWPANEL
+#define SDSUPPORT
 #else
 #define REPRAP_DISCOUNT_SMART_CONTROLLER
 #define ULTIPANEL
 #define NEWPANEL
+#define SDSUPPORT
+#endif
 #endif
 //
 // ReprapWorld Graphical LCD

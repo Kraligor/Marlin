@@ -53,8 +53,9 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Other variables DO NOT DISABLE edit only
-#define MPE 0              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max Xcage crash
-#define ZPROBESPEED (4*60)    // Probe speed reduce if accuracy is poor
+#define MPE 0               // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max Xcage crash
+#define ZPROBESPEED (4*60)  // Probe speed reduce if accuracy is poor
+//#define NOSCREEN            // Disable screen
 
 //logic used to reduce setup steps.
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
