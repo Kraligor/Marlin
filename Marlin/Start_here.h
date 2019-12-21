@@ -66,6 +66,10 @@
 #define TMCCHIPS
 #endif
 
+#if ANY(MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
+#define DIRECTDRIVE
+#endif
+
 //Bed offset logic
 #if ANY(GTA10, GTA30)
 #define XMP -10      // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
