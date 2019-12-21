@@ -1095,7 +1095,7 @@
   /**
    * Auto-report SdCard status with M27 S<seconds>
    */
-  #define AUTO_REPORT_SD_STATUS
+  //#define AUTO_REPORT_SD_STATUS
 
   /**
    * Support for USB thumb drives using an Arduino USB Host Shield or
@@ -1585,7 +1585,7 @@
 // The number of linear motions that can be in the plan at any give time.
 // THE BLOCK_BUFFER_SIZE NEEDS TO BE A POWER OF 2 (e.g. 8, 16, 32) because shifts and ors are used to do the ring-buffering.
 #define BLOCK_BUFFER_SIZE 16 // SD,LCD,Buttons take more memory, block buffer needs to be smaller'
-#define BUFSIZE 4 // serial buffer
+#define BUFSIZE 8            // serial buffer
 
 // @section serial
 
@@ -2514,12 +2514,12 @@
 /**
  * Auto-report temperatures with M155 S<seconds>
  */
- #define AUTO_REPORT_TEMPERATURES
+ //#define AUTO_REPORT_TEMPERATURES
 
 /**
  * Include capabilities in M115 output
  */
- #define EXTENDED_CAPABILITIES_REPORT
+ //#define EXTENDED_CAPABILITIES_REPORT
 
 /**
  * Expected Printer Check
