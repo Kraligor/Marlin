@@ -156,7 +156,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-//#define CUSTOM_MACHINE_NAME "3D Printer"
+#define CUSTOM_MACHINE_NAME "3D Printer"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -325,7 +325,7 @@
  */
 #if ENABLED (MIX) || ENABLED (MIXT) 
   #define MIXING_EXTRUDER 
-  #define MIXING_VIRTUAL_TOOLS 16   // Use the Virtual Tool method with M163 and M164
+  #define MIXING_VIRTUAL_TOOLS 8   // Use the Virtual Tool method with M163 and M164
   #define DIRECT_MIXING_IN_G1      // Allow ABCDHI mix factors in G1 movement commands
   #define GRADIENT_MIX             // Support for gradient mixing with M166 and LCD
   #define GRADIENT_VTOOL           // Add M166 T to use a V-tool index as a Gradient alias
@@ -355,8 +355,9 @@
  * Enable and connect the power supply to the PS_ON_PIN.
  * Specify whether the power supply is active HIGH or active LOW.
  */
-//#define PSU_CONTROL
-//#define PSU_NAME "Power Supply"
+#if ENABLED (DIRECTDRIVE)
+#define PSU_CONTROL
+#define PSU_NAME "Power Supply"
 
 #if ENABLED(PSU_CONTROL)
   #define PSU_ACTIVE_HIGH false     // Set 'false' for ATX, 'true' for X-Box
@@ -375,7 +376,7 @@
     #define POWER_TIMEOUT 30
   #endif
 #endif
-
+#endif
 // @section temperature
 
 //===========================================================================
@@ -539,9 +540,9 @@
   #define  DEFAULT_Ki 3.61
   #define  DEFAULT_Kd 145.39
   #else
-  #define  DEFAULT_Kp 32.59
-  #define  DEFAULT_Ki 3.72
-  #define  DEFAULT_Kd 71.43
+  #define  DEFAULT_Kp 35.79
+  #define  DEFAULT_Ki 4.20
+  #define  DEFAULT_Kd 76.24
 
 #endif // PIDTEMP
 #endif
@@ -595,9 +596,9 @@
   #define  DEFAULT_bedKi 54.132
   #define  DEFAULT_bedKd 602.870
   #elif ENABLED (GTA10) || ENABLED (GTA20)
-  #define  DEFAULT_bedKp 200.24
-  #define  DEFAULT_bedKi 39.43 
-  #define  DEFAULT_bedKd 254.26
+  #define  DEFAULT_bedKp 68.57
+  #define  DEFAULT_bedKi 13.28 
+  #define  DEFAULT_bedKd 239.96
   #endif
 
   // FIND YOUR OWN: "M303 U1 E-1 S60 C8" to run autotune on the bed at 90 degreesC for 8 cycles.
@@ -952,7 +953,7 @@
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 500, 500, 10, 60 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    { 1000, 1000, 10, 60 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -965,7 +966,7 @@
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
-  #define MAX_ACCEL_EDIT_VALUES       { 4000, 4000, 200, 10000 } // ...or, set your own edit limits
+  #define MAX_ACCEL_EDIT_VALUES       { 10000, 10000, 200, 10000 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1197,7 +1198,7 @@
 #define Z_CLEARANCE_DEPLOY_PROBE    5 // Z Clearance for Deploy/Stow
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
-//#define Z_AFTER_PROBING           5 // Z position after probing is done
+#define Z_AFTER_PROBING             5 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
 
@@ -1567,7 +1568,7 @@
 #if ENABLED (REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
   #define MESH_EDIT_GFX_OVERLAY                 // Display a graphics overlay while editing the mesh
 #endif
-  #define MESH_INSET MIN_PROBE_EDGE             // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET INSET             // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE            // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #define UBL_MESH_EDIT_MOVES_Z                 // Sophisticated users prefer no movement of nozzle
@@ -1580,7 +1581,7 @@
   //=================================== Mesh ==================================
   //===========================================================================
 
-  #define MESH_INSET MIN_PROBE_EDGE           // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET INSET           // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE  // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 

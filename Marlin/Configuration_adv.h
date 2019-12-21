@@ -724,7 +724,7 @@
 // Frequency limit
 // See nophead's blog for more info
 // Not working O
-//#define XY_FREQUENCY_LIMIT  20
+#define XY_FREQUENCY_LIMIT  20
 
 // Minimum planner junction speed. Sets the default minimum speed the planner plans for at the end
 // of the buffer and all stops. This should not be much greater than zero and should only be changed
@@ -1095,7 +1095,7 @@
   /**
    * Auto-report SdCard status with M27 S<seconds>
    */
-  //#define AUTO_REPORT_SD_STATUS
+  #define AUTO_REPORT_SD_STATUS
 
   /**
    * Support for USB thumb drives using an Arduino USB Host Shield or
@@ -1463,18 +1463,18 @@
  * the probe to be unable to reach any points.
  */
 #if PROBE_SELECTED && !IS_KINEMATIC
-  //#define MIN_PROBE_EDGE_LEFT MIN_PROBE_EDGE
-  //#define MIN_PROBE_EDGE_FRONT MIN_PROBE_EDGE
-  //#define MIN_PROBE_EDGE_RIGHT MIN_PROBE_EDGE
-  //#define MIN_PROBE_EDGE_BACK MIN_PROBE_EDGE
+  #define MIN_PROBE_EDGE_LEFT MIN_PROBE_EDGE
+  #define MIN_PROBE_EDGE_FRONT MIN_PROBE_EDGE
+  #define MIN_PROBE_EDGE_RIGHT MIN_PROBE_EDGE
+  #define MIN_PROBE_EDGE_BACK MIN_PROBE_EDGE
 #endif
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
   // Override the mesh area if the automatic (max) area is too large
-  //#define MESH_MIN_X MESH_INSET
-  //#define MESH_MIN_Y MESH_INSET
-  //#define MESH_MAX_X X_BED_SIZE - (MESH_INSET)
-  //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
+  #define MESH_MIN_X MESH_INSET
+  #define MESH_MIN_Y MESH_INSET
+  #define MESH_MAX_X X_BED_SIZE - (MESH_INSET)
+  #define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
 #endif
 
 /**
@@ -1585,7 +1585,7 @@
 // The number of linear motions that can be in the plan at any give time.
 // THE BLOCK_BUFFER_SIZE NEEDS TO BE A POWER OF 2 (e.g. 8, 16, 32) because shifts and ors are used to do the ring-buffering.
 #define BLOCK_BUFFER_SIZE 16 // SD,LCD,Buttons take more memory, block buffer needs to be smaller'
-#define BUFSIZE BLOCK_BUFFER_SIZE // serial buffer
+#define BUFSIZE 4 // serial buffer
 
 // @section serial
 
@@ -1656,7 +1656,7 @@
  *   'M106 P<fan> T2'     : Use the set secondary speed
  *   'M106 P<fan> T1'     : Restore the previous fan speed
  */
-//#define EXTRA_FAN_SPEED
+#define EXTRA_FAN_SPEED
 
 /**
  * Firmware-based and LCD-controlled retract
@@ -1747,7 +1747,7 @@
   #define FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE  10  // (mm/s) Slow move when starting load.
 
   #if ENABLED (DIRECTDRIVE)
-  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH   40  // (mm) Slow length, to allow time to insert material.
+  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH   20  // (mm) Slow length, to allow time to insert material.
   #else
   #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH   200  // (mm) Slow length, to allow time to insert material.
   #endif
@@ -1756,7 +1756,7 @@
   #define FILAMENT_CHANGE_FAST_LOAD_ACCEL      5  // (mm/s^2) Lower acceleration may allow a faster feedrate.
 
   #if ENABLED (DIRECTDRIVE)
-  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH    40  // (mm) Slow length, to allow time to insert material.
+  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH    20 
   #else
   #define FILAMENT_CHANGE_FAST_LOAD_LENGTH   200  // (mm) Load length of filament, from extruder gear to nozzle.
   #endif                                                //   For Bowden, the full length of the tube and nozzle.
@@ -1764,7 +1764,12 @@
                                                   //   For direct drive, the full length of the nozzle.
   //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
   #define ADVANCED_PAUSE_PURGE_FEEDRATE       10  // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
+
+  #if ENABLED (DIRECTDRIVE)
+  #define ADVANCED_PAUSE_PURGE_LENGTH         5  // (mm) Length to extrude after loading.
+  #else
   #define ADVANCED_PAUSE_PURGE_LENGTH         25  // (mm) Length to extrude after loading.
+  #endif
                                                   //   Set to 0 for manual extrusion.
                                                   //   Filament can be extruded repeatedly from the Filament Change menu
                                                   //   until extrusion is consistent, and to purge old filament.
@@ -2509,12 +2514,12 @@
 /**
  * Auto-report temperatures with M155 S<seconds>
  */
- //#define AUTO_REPORT_TEMPERATURES
+ #define AUTO_REPORT_TEMPERATURES
 
 /**
  * Include capabilities in M115 output
  */
-//#define EXTENDED_CAPABILITIES_REPORT
+ #define EXTENDED_CAPABILITIES_REPORT
 
 /**
  * Expected Printer Check
@@ -2613,82 +2618,25 @@
   #define USER_DESC_2 "Adjust Point Near" //Adjust nearest mesh point
   #define USER_GCODE_2 "G29 P4\nM500"
 
-  #define USER_DESC_3 "Lin Adv Off"
-  #define USER_GCODE_3 "M900 K0\nM500"
+  #define USER_DESC_3 "PID Autotune End"
+  #define USER_GCODE_3 "M303 U1 E0 S200 C8\nM500"
 
-  #define USER_DESC_4 "Lin Adv K0.2"
-  #define USER_GCODE_4 "M900 K0.2\nM500"
-
-  #define USER_DESC_5 "Lin Adv K0.3"
-  #define USER_GCODE_5 "M900 K0.3\nM500"
-
-  #define USER_DESC_6 "Lin Adv K0.4"
-  #define USER_GCODE_6 "M900 K0.4\nM500"
-
-  #define USER_DESC_7 "Lin Adv K0.5"
-  #define USER_GCODE_7 "M900 K0.5\nM500"
-
-  #define USER_DESC_8 "Lin Adv K0.6"
-  #define USER_GCODE_8 "M900 K0.6\nM500"
-
-  #define USER_DESC_9 "Park Toolhead"
-  #define USER_GCODE_9 "G27"
-
-  #define USER_DESC_10 "Unconditional STOP"
-  #define USER_GCODE_10 "M1"
-
-  #define USER_DESC_11 "Continue"
-  #define USER_GCODE_11 "M108"
-
-  #define USER_DESC_12 "PID Autotune End"
-  #define USER_GCODE_12 "M303 U1 E0 S200 C8\nM500"
-
-  #define USER_DESC_13 "PID Autotune Bed"
-  #define USER_GCODE_13 "M303 U1 E-1 S60 C8\nM500"
+  #define USER_DESC_4 "PID Autotune Bed"
+  #define USER_GCODE_4 "M303 U1 E-1 S60 C8\nM500"
 
   #else 
 
   #define USER_DESC_1 "Probe UBL" //Use probe to setup UBL.
   #define USER_GCODE_1 "G28\nG29 P1\nG29 P3\nG29 A\nG29 S\nM500"
 
-  #define USER_DESC_2 "Tilt Mesh" //Tilt existing mesh using probe
-  #define USER_GCODE_2 "G29 J2\nM500"
+  #define USER_DESC_2 "Adjust Point Near" //Adjust nearest mesh point
+  #define USER_GCODE_2 "G29 P4\nM500"
 
-  #define USER_DESC_3 "Adjust Point Near" //Adjust nearest mesh point
-  #define USER_GCODE_3 "G29 P4\nM500"
+  #define USER_DESC_3 "PID Autotune End"
+  #define USER_GCODE_3 "M303 U1 E0 S200 C8\nM500"
 
-  #define USER_DESC_4 "Lin Adv Off"
-  #define USER_GCODE_4 "M900 K0\nM500"
-
-  #define USER_DESC_5 "Lin Adv K0.2"
-  #define USER_GCODE_5 "M900 K0.2\nM500"
-
-  #define USER_DESC_6 "Lin Adv K0.3"
-  #define USER_GCODE_6 "M900 K0.3\nM500"
-
-  #define USER_DESC_7 "Lin Adv K0.4"
-  #define USER_GCODE_7 "M900 K0.4\nM500"
-
-  #define USER_DESC_8 "Lin Adv K0.5"
-  #define USER_GCODE_8 "M900 K0.5\nM500"
-
-  #define USER_DESC_9 "Lin Adv K0.6"
-  #define USER_GCODE_9 "M900 K0.6\nM500"
-
-  #define USER_DESC_10 "Park Toolhead"
-  #define USER_GCODE_10 "G27"
-
-  #define USER_DESC_11 "Unconditional STOP"
-  #define USER_GCODE_11 "M1"
-
-  #define USER_DESC_12 "Continue"
-  #define USER_GCODE_12 "M108"
-
-  #define USER_DESC_13 "PID Autotune End"
-  #define USER_GCODE_13 "M303 U1 E0 S200 C8\nM500"
-
-  #define USER_DESC_14 "PID Autotune Bed"
-  #define USER_GCODE_14 "M303 U1 E-1 S60 C8\nM500"
+  #define USER_DESC_4 "PID Autotune Bed"
+  #define USER_GCODE_4 "M303 U1 E-1 S60 C8\nM500"
 
  #endif
 #endif
@@ -2717,7 +2665,7 @@
  *
  * Implement M486 to allow Marlin to skip objects
  */
-//#define CANCEL_OBJECTS
+#define CANCEL_OBJECTS
 
 /**
  * I2C position encoders for closed loop control.
