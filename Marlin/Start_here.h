@@ -54,7 +54,7 @@
 
 //Other variables DO NOT DISABLE edit only
 #define MPE 0               // Keep probe away from edges
-#define INSET 0             // Move the mesh in from edges 
+#define INSET MPE             // Move the mesh in from edges 
 #define ZPROBESPEED (4*60)  // Probe speed reduce if accuracy is poor
 //#define NOSCREEN            // Disable screen
 
