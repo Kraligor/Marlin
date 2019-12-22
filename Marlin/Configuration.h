@@ -536,13 +536,13 @@
   #define  DEFAULT_Ki 0.74
   #define  DEFAULT_Kd 74.98
   #elif ENABLED (MIX) || ENABLED (MIXT) || ENABLED (CYCLOPS) || ENABLED (CYCLOPST)  || ENABLED (DUELEX) || ENABLED (GTA30) || ENABLED (GTE180) || ENABLED (GTD200)
-  #define  DEFAULT_Kp 45.8
-  #define  DEFAULT_Ki 3.61
-  #define  DEFAULT_Kd 145.39
+  #define  DEFAULT_Kp 17.74
+  #define  DEFAULT_Ki 1.90
+  #define  DEFAULT_Kd 41.41
   #else
-  #define  DEFAULT_Kp 35.79
-  #define  DEFAULT_Ki 4.20
-  #define  DEFAULT_Kd 76.24
+  #define  DEFAULT_Kp 33.29
+  #define  DEFAULT_Ki 3.83
+  #define  DEFAULT_Kd 72.28
 
 #endif // PIDTEMP
 #endif
@@ -596,9 +596,9 @@
   #define  DEFAULT_bedKi 54.132
   #define  DEFAULT_bedKd 602.870
   #elif ENABLED (GTA10) || ENABLED (GTA20)
-  #define  DEFAULT_bedKp 68.57
-  #define  DEFAULT_bedKi 13.28 
-  #define  DEFAULT_bedKd 239.96
+  #define  DEFAULT_bedKp 42.96
+  #define  DEFAULT_bedKi 8.32 
+  #define  DEFAULT_bedKd 147.80
   #endif
 
   // FIND YOUR OWN: "M303 U1 E-1 S60 C8" to run autotune on the bed at 90 degreesC for 8 cycles.
