@@ -2656,10 +2656,10 @@
   #define USER_GCODE_3 "G29 P4\nM500"
 
   #define USER_DESC_4 "PID Autotune End"
-  #define USER_GCODE_4 "M303 U1 E0 S200 C8\nM500"
+  #define USER_GCODE_4 "M303 U1 E0 S250 C8\nM500"
 
   #define USER_DESC_5 "PID Autotune Bed"
-  #define USER_GCODE_5 "M303 U1 E-1 S60 C8\nM500"
+  #define USER_GCODE_5 "M303 U1 E-1 S90 C8\nM500"
 
   #define USER_DESC_6 "Lin Adv Off"
   #define USER_GCODE_6 "M900 K0\nM500"
