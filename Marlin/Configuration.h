@@ -1180,7 +1180,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 3
+#define MULTIPLE_PROBING 3
 //#define EXTRA_PROBING    1
 
 /**
@@ -1570,7 +1570,7 @@
 #if ENABLED (REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
   #define MESH_EDIT_GFX_OVERLAY                 // Display a graphics overlay while editing the mesh
 #endif
-  #define MESH_INSET MPE                      // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET 0                      // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE            // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #define UBL_MESH_EDIT_MOVES_Z                 // Sophisticated users prefer no movement of nozzle
@@ -1583,7 +1583,7 @@
   //=================================== Mesh ==================================
   //===========================================================================
 
-  #define MESH_INSET MPE           // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET 0           // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE  // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 

@@ -51,7 +51,7 @@
 //#define FMP         // Enable Fixed Mounted Type Probe
 
 //Do you have bed clips to avoid?
-#define BEDCLIPS     // Enabled if you have bed clips manual or probe
+//#define BEDCLIPS     // Enabled if you have bed clips manual or probe
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //logic used to reduce setup steps.
@@ -69,9 +69,9 @@
 
 //Bed clip logic
 #if ENABLED (BEDCLIPS)
-#define MPE 10         // To keep probe away from edges #mm/2 all sides
+#define MPE 10         // To keep probe away from edges #mm all sides
 #else
-#define MPE 0         // To keep probe away from edges #mm/2 all sides
+#define MPE 0         // To keep probe away from edges #mm all sides
 #endif
 
 //Bed offset logic
