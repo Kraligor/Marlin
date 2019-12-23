@@ -156,7 +156,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "3D Printer"
+//#define CUSTOM_MACHINE_NAME "3D Printer"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -1336,8 +1336,8 @@
 #define Y_BED_SIZE 220
 #define Z_MAX_POS 160
 #elif ENABLED (GTA20)
-#define X_BED_SIZE 250
-#define Y_BED_SIZE 250
+#define X_BED_SIZE 255
+#define Y_BED_SIZE 255
 #define Z_MAX_POS 250
 #elif ENABLED (GTA30)
 #define X_BED_SIZE 320

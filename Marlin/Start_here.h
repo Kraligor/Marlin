@@ -46,20 +46,13 @@
 //#define CYCLOPST // Enable Cyclops   3 in 1 - Physical Motor Control
 //#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
  
-//Step 4) enable 1 probe type or none for manual (stock)
+//(Step 4) enable 1 probe type or none for manual (stock)
 #define TOUCHPROBE  // Enable Bltouch Type Probe
 //#define FMP         // Enable Fixed Mounted Type Probe
 
 //Do you have bed clips to avoid?
-//#define BEDCLIPS     // Enabled if you have bed clips manual or probe
+#define BEDCLIPS     // Enabled if you have bed clips manual or probe
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//Bed clip logic
-#if ENABLED (BEDCLIPS)
-#define MPE 10         // To keep probe away from edges #mm all sides
-#else
-#define MPE 0         // To keep probe away from edges #mm all sides
-#endif
 
 //logic used to reduce setup steps.
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
@@ -72,6 +65,13 @@
 
 #if ANY(MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
 #define DIRECTDRIVE
+#endif
+
+//Bed clip logic
+#if ENABLED (BEDCLIPS)
+#define MPE 10         // To keep probe away from edges #mm/2 all sides
+#else
+#define MPE 0         // To keep probe away from edges #mm/2 all sides
 #endif
 
 //Bed offset logic
