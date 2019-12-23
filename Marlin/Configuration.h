@@ -1169,6 +1169,8 @@
 // Feedrate (mm/m) for the "accurate" probe of each point
 #define Z_PROBE_SPEED_SLOW ZPROBESPEED
 
+#define ZPROBESPEED (4*60)    // Probe speed reduce if accuracy is poor
+
 /**
  * Multiple Probing
  *
@@ -1493,7 +1495,7 @@
 #define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
-#define GRIDSIZE 5         // 4x4 mesh grid adjust as needed
+#define GRIDSIZE 5         // 5x5 mesh grid adjust as needed
 /**
  * Normally G28 leaves leveling disabled on completion. Enable
  * this option to have G28 restore the prior leveling state.
@@ -1568,7 +1570,7 @@
 #if ENABLED (REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
   #define MESH_EDIT_GFX_OVERLAY                 // Display a graphics overlay while editing the mesh
 #endif
-  #define MESH_INSET INSET                      // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET MPE                      // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE            // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #define UBL_MESH_EDIT_MOVES_Z                 // Sophisticated users prefer no movement of nozzle
@@ -1581,7 +1583,7 @@
   //=================================== Mesh ==================================
   //===========================================================================
 
-  #define MESH_INSET INSET            // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET MPE           // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE  // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
@@ -2200,6 +2202,7 @@
 // RepRapDiscount FULL GRAPHIC Smart Controller
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
+//#define NOSCREEN            // Disable screen
 #if DISABLED (NOSCREEN)
 #if ENABLED (GTA20)
 #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER

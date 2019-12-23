@@ -2642,8 +2642,6 @@
   #define USER_DESC_10 "Lin Adv K0.6"
   #define USER_GCODE_10 "M900 K0.6\nM500"
 
-
-
   #else 
 
   #define USER_DESC_1 "Probe UBL" //Use probe to setup UBL.

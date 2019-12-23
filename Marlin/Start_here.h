@@ -50,13 +50,16 @@
 #define TOUCHPROBE  // Enable Bltouch Type Probe
 //#define FMP         // Enable Fixed Mounted Type Probe
 
+//Do you have bed clips to avoid?
+//#define BEDCLIPS     // Enabled if you have bed clips manual or probe
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//Other variables DO NOT DISABLE edit only
-#define MPE 0                 // Keep probe away from edges
-#define INSET MPE             // Move the mesh in from edges 
-#define ZPROBESPEED (4*60)    // Probe speed reduce if accuracy is poor
-//#define NOSCREEN            // Disable screen
+//Bed clip logic
+#if ENABLED (BEDCLIPS)
+#define MPE 10         // To keep probe away from edges #mm all sides
+#else
+#define MPE 0         // To keep probe away from edges #mm all sides
+#endif
 
 //logic used to reduce setup steps.
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
@@ -77,7 +80,7 @@
 #define YMP -5       // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
 #elif ENABLED (GTA20)
 #define XMP -10      // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
-#define YMP 0      // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
+#define YMP 0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
 #else 
 #define XMP 0        // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
 #define YMP 0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
