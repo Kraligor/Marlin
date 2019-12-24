@@ -1,13 +1,13 @@
 #pragma once
-#define SHORT_BUILD_VERSION "Dev Build 454"
+#define SHORT_BUILD_VERSION "Build 454"
 
 // =  disabled - remove // enabled
 
 //(Step 1) enable 1 base model
 //GT2560 Boards - vscode: default_envs = megaatmega2560 in platformio.ini
-#define GTA10       // A10 & Variants - tested working
-//#define GTA20       // A20 & Variants - tested working
-//#define MECREATOR2  // Mecreator2     - tested working
+#define GTA10       // A10 & Variants - tested 
+//#define GTA20       // A20 & Variants - tested 
+//#define MECREATOR2  // Mecreator2     - tested 
 //#define I3PROA      // PI3A Pro       - testing
 //#define I3PROB      // I3PROB         - testing
 //#define I3PROC      // I3PROC         - testing
@@ -15,10 +15,10 @@
 //#define I3PROX      // I3PROX         - testing
 
 //GTM32 Boards - vscode: default_envs = STM32F103VE_longer in platformio.ini
-//#define GTA30       // A30  - Tested mostly works
-//#define GTE180      // E180 - Tested mostly works 
-//#define GTM201      // M201 - experimental
-//#define GTD200      // D200 - experimental
+//#define GTA30       // A30  - tested 
+//#define GTE180      // E180 - tested 
+//#define GTM201      // M201 - testing
+//#define GTD200      // D200 - testing
 
 //(Step 2) enable 1 driver timing set
 //#define STOCK     // Enable A4988   on all drivers (stock drivers)
@@ -36,7 +36,7 @@
 //#define L647     // Enable L6470   all drivers
 //#define T6560    // Enable TB6560  all drivers
 //#define T6600    // Enable TB6600  all drivers
-//#define CUSTOM   // Fill in #elif ENABLED (CUSTOM) in configuration.h with a custom set & invert if needed below #if ENABLED (CUSTOM)
+//#define CUSTOM   // Fill in #elif ENABLED (CUSTOM) in configuration.h with custom set & invert if needed #if ENABLED (CUSTOM) below
 
 //(Step 3) enable 1 if you have mixing or multi extruder (C D M T variants)
 //#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 

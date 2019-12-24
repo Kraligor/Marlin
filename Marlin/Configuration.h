@@ -167,18 +167,18 @@
 // This defines the number of extruders
 // :[1, 2, 3, 4, 5, 6]
 #if ENABLED (CYCLOPST) || ENABLED (TRIEX)
-#define EXTRUDERS 3
+  #define EXTRUDERS 3
 #elif ENABLED (CYCLOPS) || ENABLED (DUALEX)
-#define EXTRUDERS 2
+  #define EXTRUDERS 2
 #else
-#define EXTRUDERS 1
+  #define EXTRUDERS 1
 #endif
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
 
 // For Cyclops or any "multi-extruder" that shares a single nozzle.
 #if ENABLED(CYCLOPS) || ENABLED (CYCLOPST)
-#define SINGLENOZZLE
+  #define SINGLENOZZLE
 #endif
 /**
  * Průša MK2 Single Nozzle Multi-Material Multiplexer, and variants.
@@ -342,7 +342,7 @@
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
 // For the other hotends it is their distance from the extruder 0 hotend.
 #if ENABLED (DULEX) || ENABLED (TRIEX)
-#define HOTEND_OFFSET_X { 0.0, 32.00 } // (mm) relative X-offset for each nozzle
+  #define HOTEND_OFFSET_X { 0.0, 32.00 } // (mm) relative X-offset for each nozzle
 #endif
 //#define HOTEND_OFFSET_Y { 0.0, 5.00 }  // (mm) relative Y-offset for each nozzle
 //#define HOTEND_OFFSET_Z { 0.0, 0.00 }  // (mm) relative Z-offset for each nozzle
@@ -356,8 +356,8 @@
  * Specify whether the power supply is active HIGH or active LOW.
  */
 #if ENABLED (DIRECTDRIVE)
-#define PSU_CONTROL
-#define PSU_NAME "Power Supply"
+  #define PSU_CONTROL
+  #define PSU_NAME "Power Supply"
 
 #if ENABLED(PSU_CONTROL)
   #define PSU_ACTIVE_HIGH false     // Set 'false' for ATX, 'true' for X-Box
@@ -443,10 +443,10 @@
 #define TEMP_SENSOR_0 1
 
 #if ENABLED (DUALEX)
-#define TEMP_SENSOR_1 1
+  #define TEMP_SENSOR_1 1
 #elif ENABLED (TRIEX)
-#define TEMP_SENSOR_1 1
-#define TEMP_SENSOR_2 1
+  #define TEMP_SENSOR_1 1
+  #define TEMP_SENSOR_2 1
 #endif
 
 #define TEMP_SENSOR_3 0
@@ -454,7 +454,7 @@
 #define TEMP_SENSOR_5 0
 
 #if DISABLED (GTE180)
-#define TEMP_SENSOR_BED 1
+  #define TEMP_SENSOR_BED 1
 #endif
 
 #define TEMP_SENSOR_CHAMBER 0
@@ -524,25 +524,25 @@
 
   //FIND YOUR OWN: "M303 U1 E0 S200 C8" HOTEND PID
   #if ENABLED (I3PROW) || ENABLED (I3PROA)  || ENABLED (I3PROC) || ENABLED (I3PROX) || ENABLED (GTM201)  
-  #define  DEFAULT_Kp 22.2
-  #define  DEFAULT_Ki 1.08
-  #define  DEFAULT_Kd 114
+    #define  DEFAULT_Kp 22.2
+    #define  DEFAULT_Ki 1.08
+    #define  DEFAULT_Kd 114
   #elif ENABLED (I3PROB)
-  #define DEFAULT_Kp 12.33
-  #define DEFAULT_Ki 0.51
-  #define DEFAULT_Kd 74.50
+    #define DEFAULT_Kp 12.33
+    #define DEFAULT_Ki 0.51
+    #define DEFAULT_Kd 74.50
   #elif ENABLED (MECREATOR2)
-  #define  DEFAULT_Kp 14.94
-  #define  DEFAULT_Ki 0.74
-  #define  DEFAULT_Kd 74.98
+    #define  DEFAULT_Kp 14.94
+    #define  DEFAULT_Ki 0.74
+    #define  DEFAULT_Kd 74.98
   #elif ENABLED (MIX) || ENABLED (MIXT) || ENABLED (CYCLOPS) || ENABLED (CYCLOPST)  || ENABLED (DUELEX) || ENABLED (GTA30) || ENABLED (GTE180) || ENABLED (GTD200)
-  #define  DEFAULT_Kp 17.74
-  #define  DEFAULT_Ki 1.90
-  #define  DEFAULT_Kd 41.41
+    #define  DEFAULT_Kp 17.74
+    #define  DEFAULT_Ki 1.90
+    #define  DEFAULT_Kd 41.41
   #else
-  #define  DEFAULT_Kp 33.29
-  #define  DEFAULT_Ki 3.83
-  #define  DEFAULT_Kd 72.28
+    #define  DEFAULT_Kp 33.29
+    #define  DEFAULT_Ki 3.83
+    #define  DEFAULT_Kd 72.28
 
 #endif // PIDTEMP
 #endif
@@ -564,7 +564,7 @@
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
 #if DISABLED (GTE180) 
-#define PIDTEMPBED
+  #define PIDTEMPBED
 #endif
 //#define BED_LIMIT_SWITCHING
 
@@ -580,25 +580,25 @@
   //#define MIN_BED_POWER 0
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
   #if ENABLED (I3PROW) || ENABLED (I3PROA)  || ENABLED (I3PROC) || ENABLED (I3PROX) || ENABLED (GTM201) 
-  #define  DEFAULT_bedKp 10.00
-  #define  DEFAULT_bedKi .023
-  #define  DEFAULT_bedKd 305.4
+    #define  DEFAULT_bedKp 10.00
+    #define  DEFAULT_bedKi .023
+    #define  DEFAULT_bedKd 305.4
   #elif ENABLED (I3PROB)
-  #define DEFAULT_bedKp 234.88
-  #define DEFAULT_bedKi 42.79
-  #define DEFAULT_bedKd 322.28
+    #define DEFAULT_bedKp 234.88
+    #define DEFAULT_bedKi 42.79
+    #define DEFAULT_bedKd 322.28
   #elif ENABLED (MECREATOR2)
-  #define  DEFAULT_bedKp 129.40
-  #define  DEFAULT_bedKi 25.07
-  #define  DEFAULT_bedKd 166.96
+    #define  DEFAULT_bedKp 129.40
+    #define  DEFAULT_bedKi 25.07
+    #define  DEFAULT_bedKd 166.96
   #elif ENABLED (GTA30) || ENABLED (GTD200)
-  #define  DEFAULT_bedKp 369.610
-  #define  DEFAULT_bedKi 54.132
-  #define  DEFAULT_bedKd 602.870
+    #define  DEFAULT_bedKp 369.610
+    #define  DEFAULT_bedKi 54.132
+    #define  DEFAULT_bedKd 602.870
   #elif ENABLED (GTA10) || ENABLED (GTA20)
-  #define  DEFAULT_bedKp 42.96
-  #define  DEFAULT_bedKi 8.32 
-  #define  DEFAULT_bedKd 147.80
+    #define  DEFAULT_bedKp 42.96
+    #define  DEFAULT_bedKi 8.32 
+    #define  DEFAULT_bedKd 147.80
   #endif
 
   // FIND YOUR OWN: "M303 U1 E-1 S60 C8" to run autotune on the bed at 90 degreesC for 8 cycles.
@@ -669,17 +669,17 @@
 // Almost all printers will be using one per axis. Probes will use one or more of the
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #if ENABLED (MECREATOR2)
-#define USE_ZMIN_PLUG
-#define USE_XMAX_PLUG
-#define USE_YMAX_PLUG
+  #define USE_ZMIN_PLUG
+  #define USE_XMAX_PLUG
+  #define USE_YMAX_PLUG
 #elif ENABLED (GTE180)
-#define USE_ZMAX_PLUG
-#define USE_XMIN_PLUG
-#define USE_YMAX_PLUG
+  #define USE_ZMAX_PLUG
+  #define USE_XMIN_PLUG
+  #define USE_YMAX_PLUG
 #else
-#define USE_XMIN_PLUG
-#define USE_YMIN_PLUG
-#define USE_ZMIN_PLUG
+  #define USE_XMIN_PLUG
+  #define USE_YMIN_PLUG
+  #define USE_ZMIN_PLUG
 //#define USE_XMAX_PLUG
 //#define USE_YMAX_PLUG
 //#define USE_ZMAX_PLUG
@@ -713,29 +713,29 @@
 
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #if ENABLED (I3PROW) || ENABLED (I3PROC) || ENABLED (I3PROB) || ENABLED (I3PROA) || ENABLED (GTM201) 
-#define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the probe.
+  #define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Y_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Z_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define X_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the probe.
 #elif ENABLED (MECREATOR2)
-#define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING true // set to true to invert the logic of the probe.
+  #define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Y_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Z_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
+  #define X_MAX_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
+  #define Y_MAX_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
+  #define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING true // set to true to invert the logic of the probe.
 #else
-#define X_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING true  // set to true to invert the logic of the probe.
+  #define X_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Y_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Z_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define X_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Y_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Z_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING true  // set to true to invert the logic of the probe.
 #endif
 
 /**
@@ -934,7 +934,7 @@
  * total number of extruders, the last value applies to the rest.
  */
 #if ENABLED (MULTIEXTRUDER) 
-#define DISTINCT_E_FACTORS
+  #define DISTINCT_E_FACTORS
 #endif
 
 /**
@@ -1096,14 +1096,14 @@
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
 #if ENABLED (TOUCHPROBE) && DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM201) && DISABLED (GTD200)
-#define BLTOUCH
-#define Z_MIN_PROBE_REPEATABILITY_TEST
+  #define BLTOUCH
+  #define Z_MIN_PROBE_REPEATABILITY_TEST
 #elif ENABLED (FMP) && DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM201) && DISABLED (GTD200)
-#define FIX_MOUNTED_PROBE
-#define Z_MIN_PROBE_REPEATABILITY_TEST
+  #define FIX_MOUNTED_PROBE
+  #define Z_MIN_PROBE_REPEATABILITY_TEST
 #else
-#define PROBE_MANUALLY
-#define MANUAL_PROBE_START_Z 0.2
+  #define PROBE_MANUALLY
+  #define MANUAL_PROBE_START_Z 0.2
 #endif
 
 /**
@@ -1263,37 +1263,37 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #if ENABLED(I3PROC) && ENABLED(INVERTXYZ)
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
 #elif ENABLED(MECREATOR2) && ENABLED(INVERTXYZ)
-#define INVERT_X_DIR false
-#define INVERT_Y_DIR false
-#define INVERT_Z_DIR false
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR false
 #elif ENABLED(GTE180) && ENABLED(INVERTXYZ)
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR false
-#define INVERT_Z_DIR true
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR true
 #elif ENABLED(GTE180)
-#define INVERT_X_DIR false
-#define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
 #elif ENABLED (I3PROC)
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR false
-#define INVERT_X_DIR false
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR false
+  #define INVERT_X_DIR false
 #elif ENABLED(MECREATOR2)
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR true
-#define INVERT_Z_DIR true
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR true
 #elif ENABLED(INVERTXYZ)
-#define INVERT_X_DIR false
-#define INVERT_Y_DIR false
-#define INVERT_Z_DIR true
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR true
 #else
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
 #endif
 
 // @section extruder
@@ -1321,58 +1321,58 @@
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
 #if ENABLED (MECREATOR2)
-#define X_HOME_DIR 1
-#define Y_HOME_DIR 1
-#define Z_HOME_DIR -1
+  #define X_HOME_DIR 1
+  #define Y_HOME_DIR 1
+  #define Z_HOME_DIR -1
 #elif ENABLED (GTE180)
-#define X_HOME_DIR -1
-#define Y_HOME_DIR 1
-#define Z_HOME_DIR 1
+  #define X_HOME_DIR -1
+  #define Y_HOME_DIR 1
+  #define Z_HOME_DIR 1
 #else
-#define X_HOME_DIR -1
-#define Y_HOME_DIR -1
-#define Z_HOME_DIR -1
+  #define X_HOME_DIR -1
+  #define Y_HOME_DIR -1
+  #define Z_HOME_DIR -1
 #endif
 
 // @section machine
 
 // Max XYZ Travel Disatnce from 0 in MM before hitting the end.
 #if ENABLED (GTM201) 
-#define X_BED_SIZE 280
-#define Y_BED_SIZE 220
-#define Z_MAX_POS 160
+  #define X_BED_SIZE 280
+  #define Y_BED_SIZE 220
+  #define Z_MAX_POS 160
 #elif ENABLED (GTA20)
-#define X_BED_SIZE 255
-#define Y_BED_SIZE 255
-#define Z_MAX_POS 250
+  #define X_BED_SIZE 255
+  #define Y_BED_SIZE 255
+  #define Z_MAX_POS 250
 #elif ENABLED (GTA30)
-#define X_BED_SIZE 320
-#define Y_BED_SIZE 320
-#define Z_MAX_POS 420
+  #define X_BED_SIZE 320
+  #define Y_BED_SIZE 320
+  #define Z_MAX_POS 420
 #elif ENABLED (GTE180)
-#define X_BED_SIZE 130
-#define Y_BED_SIZE 130
-#define Z_MAX_POS 130
+  #define X_BED_SIZE 130
+  #define Y_BED_SIZE 130
+  #define Z_MAX_POS 130
 #elif ENABLED (I3PROW) || ENABLED (I3PROC) || ENABLED (I3PROB) || ENABLED (I3PROA) || ENABLED (I3PROX)
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 200
-#define Z_MAX_POS 180
+  #define X_BED_SIZE 200
+  #define Y_BED_SIZE 200
+  #define Z_MAX_POS 180
 #elif ENABLED (I3PROA)
-#define X_BED_SIZE 220
-#define Y_BED_SIZE 220
-#define Z_MAX_POS 200
+  #define X_BED_SIZE 220
+  #define Y_BED_SIZE 220
+  #define Z_MAX_POS 200
 #elif ENABLED (GTD200)
-#define X_BED_SIZE 300
-#define Y_BED_SIZE 180 
-#define Z_MAX_POS 180
+  #define X_BED_SIZE 300
+  #define Y_BED_SIZE 180 
+  #define Z_MAX_POS 180
 #elif ENABLED (MECREATOR2)
-#define X_BED_SIZE 155
-#define Y_BED_SIZE 165
-#define Z_MAX_POS 155
+  #define X_BED_SIZE 155
+  #define Y_BED_SIZE 165
+  #define Z_MAX_POS 155
 #elif ENABLED (GTA10)
-#define X_BED_SIZE 230
-#define Y_BED_SIZE 230
-#define Z_MAX_POS 250
+  #define X_BED_SIZE 230
+  #define Y_BED_SIZE 230
+  #define Z_MAX_POS 250
 #endif
 
 #define X_MIN_POS XMP
@@ -1417,9 +1417,9 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  * By default the firmware assumes HIGH=FILAMENT PRESENT.
- */ 
+ */
 #if ENABLED (GTA10) || ENABLED (GTA20)
-#define FILAMENT_RUNOUT_SENSOR 
+  #define FILAMENT_RUNOUT_SENSOR 
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
    #if ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
    #define NUM_RUNOUT_SENSORS   3
@@ -1602,7 +1602,7 @@
  * Include a guided procedure if manual probing is enabled.
  */
 #if DISABLED (AUTO_BED_LEVELING_UBL)
-#define LCD_BED_LEVELING
+  #define LCD_BED_LEVELING
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
   #define LCD_PROBE_Z_RANGE 1     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
@@ -1754,7 +1754,7 @@
 // M100 Free Memory Watcher
 //
 #if DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM201) && DISABLED (GTD200)
-//#define M100_FREE_MEMORY_WATCHER    // Add M100 (Free Memory Watcher) to debug memory usage
+  //#define M100_FREE_MEMORY_WATCHER    // Add M100 (Free Memory Watcher) to debug memory usage
 #endif
 
 //
@@ -1953,8 +1953,8 @@
  *
  */
 #if ENABLED (GTA30) || ENABLED (GTE180) || ENABLED (GTD200) || ENABLED (GTM201)
-#define SDIO_SUPPORT
-#define SDSUPPORT
+  #define SDIO_SUPPORT
+  #define SDSUPPORT
 #endif
 
 //#endif
@@ -2210,19 +2210,19 @@
 //
 //#define NOSCREEN            // Disable screen
 #if DISABLED (NOSCREEN)
-#if ENABLED (GTA20)
-#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
-#define ST7920_DELAY_1 DELAY_NS(200)
-#define ST7920_DELAY_2 DELAY_NS(200)
-#define ST7920_DELAY_3 DELAY_NS(200)
-#define ULTIPANEL
-#define NEWPANEL
-#define SDSUPPORT
+  #if ENABLED (GTA20)
+    #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+    #define ST7920_DELAY_1 DELAY_NS(200)
+    #define ST7920_DELAY_2 DELAY_NS(200)
+    #define ST7920_DELAY_3 DELAY_NS(200)
+    #define ULTIPANEL
+    #define NEWPANEL
+    #define SDSUPPORT
 #else
-#define REPRAP_DISCOUNT_SMART_CONTROLLER
-#define ULTIPANEL
-#define NEWPANEL
-#define SDSUPPORT
+  #define REPRAP_DISCOUNT_SMART_CONTROLLER
+  #define ULTIPANEL
+  #define NEWPANEL
+  #define SDSUPPORT
 #endif
 #endif
 //

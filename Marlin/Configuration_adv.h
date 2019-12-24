@@ -427,7 +427,7 @@
  * M355 Case Light on-off / brightness
  */
 #if ANY(GTA10, GTA20, MECREATOR2)
-#define CASE_LIGHT_ENABLE
+  #define CASE_LIGHT_ENABLE
 #if ENABLED(CASE_LIGHT_ENABLE)
   //#define CASE_LIGHT_PIN 6                    // Override the default pin if needed
   #define INVERT_CASE_LIGHT false             // Set true if Case Light is ON when pin is LOW
@@ -1015,7 +1015,7 @@
    * point in the file.
    */
   #if ENABLED (GTA10) || ENABLED (GTA20)
-  #define POWER_LOSS_RECOVERY
+    #define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
     //#define BACKUP_POWER_SUPPLY       // Backup power / UPS to move the steppers on power loss
     //#define POWER_LOSS_ZRAISE       2 // (mm) Z axis raise on resume (on power loss with UPS)
@@ -1395,8 +1395,8 @@
 
   //#define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28 
   #if DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM201) && DISABLED (GTD200)
-  #if ENABLED (TOUCHPROBE) || ENABLED (FMP)
-  #define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
+    #if ENABLED (TOUCHPROBE) || ENABLED (FMP)
+      #define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
   #endif
   #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
     //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
@@ -1631,7 +1631,7 @@
 // Currently handles M108, M112, M410
 // Does not work on boards using AT90USB (USBCON) processors!
 #if DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM201) && DISABLED (GTD200)
-#define EMERGENCY_PARSER
+  #define EMERGENCY_PARSER
 #endif
 
 // Bad Serial-connections can miss a received command by sending an 'ok'
@@ -1733,7 +1733,7 @@
  * This feature is required for the default FILAMENT_RUNOUT_SCRIPT.
  */
 #if DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTD200) && DISABLED (GTM201)
-#define ADVANCED_PAUSE_FEATURE
+  #define ADVANCED_PAUSE_FEATURE
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
   #define PAUSE_PARK_RETRACT_FEEDRATE         10  // (mm/s) Initial retract feedrate.
   #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
@@ -1747,7 +1747,7 @@
   #define FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE  10  // (mm/s) Slow move when starting load.
 
   #if ENABLED (DIRECTDRIVE)
-  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH   20  // (mm) Slow length, to allow time to insert material.
+    #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH   20  // (mm) Slow length, to allow time to insert material.
   #else
   #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH   200  // (mm) Slow length, to allow time to insert material.
   #endif
@@ -1756,7 +1756,7 @@
   #define FILAMENT_CHANGE_FAST_LOAD_ACCEL      5  // (mm/s^2) Lower acceleration may allow a faster feedrate.
 
   #if ENABLED (DIRECTDRIVE)
-  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH    20 
+    #define FILAMENT_CHANGE_FAST_LOAD_LENGTH    20 
   #else
   #define FILAMENT_CHANGE_FAST_LOAD_LENGTH   200  // (mm) Load length of filament, from extruder gear to nozzle.
   #endif                                                //   For Bowden, the full length of the tube and nozzle.
@@ -1766,7 +1766,7 @@
   #define ADVANCED_PAUSE_PURGE_FEEDRATE       10  // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
 
   #if ENABLED (DIRECTDRIVE)
-  #define ADVANCED_PAUSE_PURGE_LENGTH         5  // (mm) Length to extrude after loading.
+    #define ADVANCED_PAUSE_PURGE_LENGTH         5  // (mm) Length to extrude after loading.
   #else
   #define ADVANCED_PAUSE_PURGE_LENGTH         25  // (mm) Length to extrude after loading.
   #endif
