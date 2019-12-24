@@ -52,6 +52,7 @@
 
 //Do you have bed clips to avoid?
 //#define BEDCLIPS     // Enabled if you have bed clips manual or probe
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //logic used to reduce setup steps.
