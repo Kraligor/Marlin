@@ -5,8 +5,8 @@
 
 //(Step 1) enable 1 base model
 //GT2560 Boards - vscode: default_envs = megaatmega2560 in platformio.ini
-#define GTA10       // A10 & Variants - tested 
-//#define GTA20       // A20 & Variants - tested 
+//#define GTA10       // A10 & Variants - tested 
+#define GTA20       // A20 & Variants - tested 
 //#define MECREATOR2  // Mecreator2     - tested 
 //#define I3PROA      // PI3A Pro       - testing
 //#define I3PROB      // I3PROB         - testing
