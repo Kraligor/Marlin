@@ -70,9 +70,9 @@
 
 //Bed clip logic
 #if ENABLED (BEDCLIPS)
-#define MESH_INSET 10
+#define MESH_INSET 10 // Move mesh in #mm from edge
 #else
-#define MESH_INSET 0
+#define MESH_INSET 0  // Move mesh in #mm from edge
 #endif
 
 //Bed offset logic
