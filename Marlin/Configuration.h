@@ -1164,7 +1164,7 @@
 //#define NOZZLE_TO_PROBE_OFFSET
 
 // Certain types of probes need to stay away from edges
-//#define MIN_PROBE_EDGE 0
+#define MIN_PROBE_EDGE 0
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED HOMING_FEEDRATE_XY
@@ -1576,7 +1576,7 @@
 #if ENABLED (REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
   #define MESH_EDIT_GFX_OVERLAY                 // Display a graphics overlay while editing the mesh
 #endif
-  #define MESH_INSET 0                      // Set Mesh bounds as an inset region of the bed
+  //#define MESH_INSET 0                      // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE            // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #define UBL_MESH_EDIT_MOVES_Z                 // Sophisticated users prefer no movement of nozzle
@@ -1589,7 +1589,7 @@
   //=================================== Mesh ==================================
   //===========================================================================
 
-  #define MESH_INSET 0           // Set Mesh bounds as an inset region of the bed
+  //#define MESH_INSET 0           // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE  // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
