@@ -70,44 +70,44 @@
 
 //Bed clip logic
 #if ENABLED (BEDCLIPS)
-#define MPE 10         // To keep probe away from edges #mm all sides
+#define MIN_PROBE_EDGE 10         // To keep probe away from edges #mm all sides
 #else
-#define MPE 0         // To keep probe away from edges #mm all sides
+#define MIN_PROBE_EDGE 0         // To keep probe away from edges #mm all sides
 #endif
 
 //Bed offset logic
 #if ANY(GTA10, GTA30)
-#define XMP -10      // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
-#define YMP -5       // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
+#define X_MIN_POS -10      // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
+#define Y_MIN_POS -5       // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
 #elif ENABLED (GTA20)
-#define XMP -10      // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
-#define YMP 0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
+#define X_MIN_POS -10      // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
+#define Y_MIN_POS 0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
 #else 
-#define XMP 0        // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
-#define YMP 0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
+#define X_MIN_POS 0        // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
+#define Y_MIN_POS 0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
 #endif
 
 //Probe offset logic
 #if DISABLED (MULTIEXTRUDER)
-#define NPO { -38, 5, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested 
+#define NOZZLE_TO_PROBE_OFFSET { -38, 5, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested 
 #elif ENABLED (MULTIEXTRUDER)
-#define NPO { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested
+#define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested
 #endif
 
 //Steps selection logic
 #if DISABLED (MULTIEXTRUDER) 
-#define XYZESTEPS  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro
-//#define XYZESTEPS  { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro
+#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro
 #endif
 
 #if ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX)
-#define XYZESTEPS  { 80, 80, 400, 430, 430 } // geared extruder found on M & T variants
-//#define XYZESTEPS  { 80, 80, 2560,430, 430 } // M8 Z rod steps 2560 found on old I3pro
+#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 430, 430 } // geared extruder found on M & T variants
+//#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 2560,430, 430 } // M8 Z rod steps 2560 found on old I3pro
 #endif
 
 #if ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
-#define XYZESTEPS  { 80, 80, 400, 430, 430, 430 } // geared extruder found on M & T variants
-//#define XYZESTEPS  { 80, 80, 2560,430, 430, 430 } // M8 Z rod steps 2560 found on old I3pro
+#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 430, 430, 430 } // geared extruder found on M & T variants
+//#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 2560,430, 430, 430 } // M8 Z rod steps 2560 found on old I3pro
 #endif
 
 //Motor direction logic

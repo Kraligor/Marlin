@@ -522,7 +522,7 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
-  //FIND YOUR OWN: "M303 U1 E0 S200 C8" HOTEND PID
+  //FIND YOUR OWN: "M303 U1 E0 S250 C8" HOTEND PID
   #if ENABLED (I3PROW) || ENABLED (I3PROA)  || ENABLED (I3PROC) || ENABLED (I3PROX) || ENABLED (GTM201)  
     #define  DEFAULT_Kp 22.2
     #define  DEFAULT_Ki 1.08
@@ -601,7 +601,7 @@
     #define  DEFAULT_bedKd 147.80
   #endif
 
-  // FIND YOUR OWN: "M303 U1 E-1 S60 C8" to run autotune on the bed at 90 degreesC for 8 cycles.
+  // FIND YOUR OWN: "M303 U1 E-1 S90 C8" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
 
 // @section extruder
@@ -942,7 +942,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   XYZESTEPS
+//#define DEFAULT_AXIS_STEPS_PER_UNIT 
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1161,10 +1161,10 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET NPO
+//#define NOZZLE_TO_PROBE_OFFSET
 
 // Certain types of probes need to stay away from edges
-#define MIN_PROBE_EDGE MPE
+//#define MIN_PROBE_EDGE
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED HOMING_FEEDRATE_XY
@@ -1375,8 +1375,8 @@
   #define Z_MAX_POS 250
 #endif
 
-#define X_MIN_POS XMP
-#define Y_MIN_POS YMP
+//#define X_MIN_POS
+//#define Y_MIN_POS
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
