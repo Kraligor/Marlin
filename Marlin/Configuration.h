@@ -1164,7 +1164,7 @@
 //#define NOZZLE_TO_PROBE_OFFSET
 
 // Certain types of probes need to stay away from edges
-//#define MIN_PROBE_EDGE
+//#define MIN_PROBE_EDGE 0
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED HOMING_FEEDRATE_XY
@@ -1186,7 +1186,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 3
+#define MULTIPLE_PROBING 3
 //#define EXTRA_PROBING    1
 
 /**

@@ -70,9 +70,9 @@
 
 //Bed clip logic
 #if ENABLED (BEDCLIPS)
-#define MIN_PROBE_EDGE 10
+#define MIN_PROBE_EDGE 10  // Keep probe away from edge #mm
 #else
-#define MIN_PROBE_EDGE 0
+#define MIN_PROBE_EDGE 0   // Keep probe away from edge #mm
 #endif
 
 //Bed offset logic
