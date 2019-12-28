@@ -1573,9 +1573,9 @@
   //===========================================================================
   //========================= Unified Bed Leveling ============================
   //===========================================================================
-#if ENABLED (REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+ #if ENABLED (GTA20)
   #define MESH_EDIT_GFX_OVERLAY                 // Display a graphics overlay while editing the mesh
-#endif
+ #endif
   //#define MESH_INSET 0                      // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE            // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X

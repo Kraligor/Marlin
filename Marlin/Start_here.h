@@ -5,8 +5,8 @@
 
 //(Step 1) enable 1 base model
 //GT2560 Boards - vscode: default_envs = megaatmega2560 in platformio.ini
-#define GTA10       // A10 & Variants - tested 
-//#define GTA20       // A20 & Variants - tested 
+//#define GTA10       // A10 & Variants - tested 
+#define GTA20       // A20 & Variants - tested 
 //#define MECREATOR2  // Mecreator2     - tested 
 //#define I3PROA      // PI3A Pro       - testing
 //#define I3PROB      // I3PROB         - testing
@@ -71,10 +71,10 @@
 //Bed clip logic
 #if ENABLED (BEDCLIPS)
 #define MESH_INSET 0        // Move mesh in #mm from edge
-#define MIN_PROBE_EDGE 10   // Keep probe away from edges
+#define MIN_PROBE_EDGE 10   // Keep probe away from edge #MM
 #else
 #define MESH_INSET 0        // Move mesh in #mm from edge
-#define MIN_PROBE_EDGE 0    // Keep probe away from edges
+#define MIN_PROBE_EDGE 0    // Keep probe away from edge #mm
 #endif
 
 //Bed offset logic
