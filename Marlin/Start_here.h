@@ -70,9 +70,11 @@
 
 //Bed clip logic
 #if ENABLED (BEDCLIPS)
-#define MESH_INSET 10 // Move mesh in #mm from edge
+#define MESH_INSET 0        // Move mesh in #mm from edge
+#define MIN_PROBE_EDGE 10   // Keep probe away from edges
 #else
-#define MESH_INSET 0  // Move mesh in #mm from edge
+#define MESH_INSET 0        // Move mesh in #mm from edge
+#define MIN_PROBE_EDGE 0    // Keep probe away from edges
 #endif
 
 //Bed offset logic

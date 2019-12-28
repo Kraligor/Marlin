@@ -1164,7 +1164,7 @@
 //#define NOZZLE_TO_PROBE_OFFSET
 
 // Certain types of probes need to stay away from edges
-#define MIN_PROBE_EDGE 0
+//#define MIN_PROBE_EDGE 0
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED HOMING_FEEDRATE_XY
