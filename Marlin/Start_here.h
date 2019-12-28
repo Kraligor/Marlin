@@ -53,11 +53,24 @@
 //#define FMP         // Enable Fixed Mounted Type Probe
 
 //Do you have bed clips to avoid?
-//#define BEDCLIPS     // Enabled if you have bed clips to avoid manual or probe
+#define BEDCLIPS     // Enabled if you have bed clips to avoid manual or probe
 
 //-----------------------------------
 //logic used to reduce setup steps. |
 //-----------------------------------
+
+//Simplify some variables
+#if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
+#define MULTIEXTRUDER 
+#endif
+
+#if ANY(T2208, T2209, T2130, T2160, T26X, T2660,  T5130, T5160)
+#define TMCCHIPS
+#endif
+
+#if ANY(MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
+#define DIRECTDRIVE
+#endif
 
 //Bed clip logic - use mesh inset or min probe edge to avoid clips
 #if ENABLED (BEDCLIPS)
@@ -115,17 +128,4 @@
 #if ENABLED (CUSTOM)
 //#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
 #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
-#endif
-
-//Simplify some variables
-#if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
-#define MULTIEXTRUDER 
-#endif
-
-#if ANY(T2208, T2209, T2130, T2160, T26X, T2660,  T5130, T5160)
-#define TMCCHIPS
-#endif
-
-#if ANY(MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
-#define DIRECTDRIVE
 #endif
