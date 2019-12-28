@@ -74,11 +74,15 @@
 
 //Bed clip logic - use mesh inset or min probe edge to avoid clips not both
 #if ENABLED (BEDCLIPS)
-#define MESH_INSET 10        // Move mesh in #mm from edge
-#define MIN_PROBE_EDGE 0   // Keep probe away from edge #mm by skiping probe points
+#define MESH_INSET 0        // Move mesh in #mm from edge
+#define MIN_PROBE_EDGE 10   // Keep probe away from edge #mm by skiping probe points
 #else
 #define MESH_INSET 0        // Move mesh in #mm from edge
 #define MIN_PROBE_EDGE 0    // Keep probe away from edge #mm by skiping probe points
+#endif
+
+#if MESH_INSET > 0 && MIN_PROBE_EDGE > 0
+#error Dont Use Both MESH_INSET & MIN_PROBE_EDGE at the same time
 #endif
 
 //Bed offset logic - distance from endstop to bed, nozzle on front left bed edge should = X0 Y0
