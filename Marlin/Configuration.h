@@ -74,8 +74,6 @@
 #define STRING_CONFIG_H_AUTHOR "(Vertabreaker)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 #include "Start_here.h"
-#define SOURCE_CODE_URL "https://github.com/Vertabreak/Marlin"
-#define WEBSITE_URL "https://www.youtube.com/vertabreaker"
 
 /**
  * *** VENDORS PLEASE READ ***
@@ -90,12 +88,6 @@
 
 // Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
 #define SHOW_BOOTSCREEN
-
-// Show the bitmap in Marlin/_Bootscreen.h on startup.
-//#define SHOW_CUSTOM_BOOTSCREEN
-
-// Show the bitmap in Marlin/_Statusscreen.h on the status screen.
-//#define CUSTOM_STATUS_SCREEN_IMAGE
 
 // @section machine
 
@@ -120,7 +112,6 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-//#define SERIAL_PORT_2 -1
 
 /**
  * This setting determines the communication speed of the printer.
@@ -154,9 +145,6 @@
   #define MOTHERBOARD BOARD_GTM32_REV_B
  #endif 
 #endif
-
-// Name displayed in the LCD "Ready" message and Info menu
-//#define CUSTOM_MACHINE_NAME "3D Printer"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -1161,10 +1149,6 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-//#define NOZZLE_TO_PROBE_OFFSET
-
-// Certain types of probes need to stay away from edges
-//#define MIN_PROBE_EDGE 0
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED HOMING_FEEDRATE_XY
@@ -1173,9 +1157,7 @@
 #define Z_PROBE_SPEED_FAST Z_PROBE_SPEED_SLOW
 
 // Feedrate (mm/m) for the "accurate" probe of each point
-#define Z_PROBE_SPEED_SLOW ZPROBESPEED
-
-#define ZPROBESPEED (4*60)    // Probe speed reduce if accuracy is poor
+#define Z_PROBE_SPEED_SLOW (4*60)    // Probe speed reduce if accuracy is poor
 
 /**
  * Multiple Probing
@@ -1212,7 +1194,7 @@
 
 // For M851 give a range for adjusting the Z probe offset
 #define Z_PROBE_OFFSET_RANGE_MIN -20
-#define Z_PROBE_OFFSET_RANGE_MAX 0
+#define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
 //#define Z_MIN_PROBE_REPEATABILITY_TEST
@@ -1375,8 +1357,6 @@
   #define Z_MAX_POS 250
 #endif
 
-//#define X_MIN_POS
-//#define Y_MIN_POS
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
@@ -1576,7 +1556,6 @@
  #if ENABLED (GTA20)
   #define MESH_EDIT_GFX_OVERLAY                 // Display a graphics overlay while editing the mesh
  #endif
-  //#define MESH_INSET 0                      // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE            // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #define UBL_MESH_EDIT_MOVES_Z                 // Sophisticated users prefer no movement of nozzle
@@ -1589,7 +1568,6 @@
   //=================================== Mesh ==================================
   //===========================================================================
 
-  //#define MESH_INSET 0           // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE  // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 

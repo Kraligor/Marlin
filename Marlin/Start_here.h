@@ -1,12 +1,14 @@
 #pragma once
 #define SHORT_BUILD_VERSION "Build 455"
+#define SOURCE_CODE_URL "https://github.com/Vertabreak/Marlin"
+#define WEBSITE_URL "https://www.youtube.com/vertabreaker"
 
 // =  disabled - remove // enabled
 
 //(Step 1) enable 1 base model
 //GT2560 Boards - vscode: default_envs = megaatmega2560 in platformio.ini
-//#define GTA10       // A10 & Variants - tested 
-#define GTA20       // A20 & Variants - tested 
+#define GTA10       // A10 & Variants - tested 
+//#define GTA20       // A20 & Variants - tested 
 //#define MECREATOR2  // Mecreator2     - tested 
 //#define I3PROA      // PI3A Pro       - testing
 //#define I3PROB      // I3PROB         - testing
@@ -51,49 +53,38 @@
 //#define FMP         // Enable Fixed Mounted Type Probe
 
 //Do you have bed clips to avoid?
-//#define BEDCLIPS     // Enabled if you have bed clips manual or probe
+//#define BEDCLIPS     // Enabled if you have bed clips to avoid manual or probe
 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------
+//logic used to reduce setup steps. |
+//-----------------------------------
 
-//logic used to reduce setup steps.
-#if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
-#define MULTIEXTRUDER 
-#endif
-
-#if ANY(T2208, T2209, T2130, T2160, T26X, T2660,  T5130, T5160)
-#define TMCCHIPS
-#endif
-
-#if ANY(MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
-#define DIRECTDRIVE
-#endif
-
-//Bed clip logic
+//Bed clip logic - use mesh inset or min probe edge to avoid clips
 #if ENABLED (BEDCLIPS)
 #define MESH_INSET 0        // Move mesh in #mm from edge
-#define MIN_PROBE_EDGE 10   // Keep probe away from edge #MM
+#define MIN_PROBE_EDGE 10   // Keep probe away from edge #mm
 #else
 #define MESH_INSET 0        // Move mesh in #mm from edge
 #define MIN_PROBE_EDGE 0    // Keep probe away from edge #mm
 #endif
 
-//Bed offset logic
+//Bed offset logic - distance from endstop to bed, nozzle on front left bed edge should = X0 Y0
 #if ANY(GTA10, GTA30)
-#define X_MIN_POS -10      // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
-#define Y_MIN_POS -5       // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
+#define X_MIN_POS -10
+#define Y_MIN_POS -5
 #elif ENABLED (GTA20)
-#define X_MIN_POS -10      // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
-#define Y_MIN_POS 0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
+#define X_MIN_POS -10   
+#define Y_MIN_POS 0    
 #else 
-#define X_MIN_POS 0        // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
-#define Y_MIN_POS 0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
+#define X_MIN_POS 0        
+#define Y_MIN_POS 0       
 #endif
 
-//Probe offset logic
+//Probe offset logic - suggest you mesure yours and adjust as needed. 
 #if DISABLED (MULTIEXTRUDER)
-#define NOZZLE_TO_PROBE_OFFSET { -38, 5, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested 
+#define NOZZLE_TO_PROBE_OFFSET { -38, 5, 0 } // Nozzle To Probe offset XYZ A10/A20 
 #elif ENABLED (MULTIEXTRUDER)
-#define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested
+#define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M+T/A20M+T
 #endif
 
 //Steps selection logic
@@ -114,7 +105,7 @@
 
 //Motor direction logic
 #if ENABLED (TMCCHIPS) && DISABLED (MULTIEXTRUDER) || DISABLED (CUSTOM) && ENABLED (MULTIEXTRUDER) 
-#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
+#define INVERTE     // Invert E direction disabe if wrong direction - Geared exturders invert E (stock)
 #endif
 
 #if ENABLED (TMCCHIPS)
@@ -124,4 +115,17 @@
 #if ENABLED (CUSTOM)
 //#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
 #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
+#endif
+
+//Simplify some variables
+#if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
+#define MULTIEXTRUDER 
+#endif
+
+#if ANY(T2208, T2209, T2130, T2160, T26X, T2660,  T5130, T5160)
+#define TMCCHIPS
+#endif
+
+#if ANY(MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
+#define DIRECTDRIVE
 #endif
