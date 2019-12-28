@@ -52,8 +52,10 @@
 #define TOUCHPROBE  // Enable Bltouch Type Probe
 //#define FMP         // Enable Fixed Mounted Type Probe
 
-//Do you have bed clips to avoid?
-//#define BEDCLIPS     // Enabled if you have bed clips to avoid manual or probe
+//Options
+//#define BEDCLIPS              // Enabled if you have bed clips to avoid manual or probe
+#define MULTIPLE_PROBING 3        // Probe # times take the average
+#define Z_PROBE_SPEED_SLOW (4*60) // Probe speed reduce if accuracy is poor
 
 //-----------------------------------
 //logic used to reduce setup steps. |
