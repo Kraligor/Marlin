@@ -53,7 +53,7 @@
 //#define FMP         // Enable Fixed Mounted Type Probe
 
 //Do you have bed clips to avoid?
-#define BEDCLIPS     // Enabled if you have bed clips to avoid manual or probe
+//#define BEDCLIPS     // Enabled if you have bed clips to avoid manual or probe
 
 //-----------------------------------
 //logic used to reduce setup steps. |
@@ -72,13 +72,13 @@
 #define DIRECTDRIVE
 #endif
 
-//Bed clip logic - use mesh inset or min probe edge to avoid clips
+//Bed clip logic - use mesh inset or min probe edge to avoid clips not both
 #if ENABLED (BEDCLIPS)
-#define MESH_INSET 0        // Move mesh in #mm from edge
-#define MIN_PROBE_EDGE 10   // Keep probe away from edge #mm
+#define MESH_INSET 10        // Move mesh in #mm from edge
+#define MIN_PROBE_EDGE 0   // Keep probe away from edge #mm by skiping probe points
 #else
 #define MESH_INSET 0        // Move mesh in #mm from edge
-#define MIN_PROBE_EDGE 0    // Keep probe away from edge #mm
+#define MIN_PROBE_EDGE 0    // Keep probe away from edge #mm by skiping probe points
 #endif
 
 //Bed offset logic - distance from endstop to bed, nozzle on front left bed edge should = X0 Y0
