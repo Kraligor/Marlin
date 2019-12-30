@@ -61,11 +61,11 @@
 
 //Simplify some variables
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
-#define MULTIEXTRUDER 
+  #define MULTIEXTRUDER 
 #endif
 
 #if ANY(T2208, T2209, T2130, T2160, T26X, T2660,  T5130, T5160)
-#define TMCCHIPS
+  #define TMCCHIPS
 #endif
 
 #if ANY(MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
@@ -74,62 +74,62 @@
 
 //Bed clip logic - use mesh inset or min probe edge to avoid clips not both
 #if ENABLED (BEDCLIPS)
-#define MESH_INSET 0        // Move mesh in #mm from edge
-#define MIN_PROBE_EDGE 10   // Keep probe away from edge #mm by skiping probe points
+  #define MESH_INSET      0   // Move mesh in #mm from edge
+  #define MIN_PROBE_EDGE 10   // Keep probe away from edge #mm by skiping probe points
 #else
-#define MESH_INSET 0        // Move mesh in #mm from edge
-#define MIN_PROBE_EDGE 0    // Keep probe away from edge #mm by skiping probe points
-#endif
-
-#if MESH_INSET > 0 && MIN_PROBE_EDGE > 0
-#error Dont Use Both MESH_INSET & MIN_PROBE_EDGE at the same time
+  #define MESH_INSET     0    // Move mesh in #mm from edge
+  #define MIN_PROBE_EDGE 0    // Keep probe away from edge #mm by skiping probe points
 #endif
 
 //Bed offset logic - distance from endstop to bed, nozzle on front left bed edge should = X0 Y0
 #if ANY(GTA10, GTA30)
-#define X_MIN_POS -10
-#define Y_MIN_POS -5
+  #define X_MIN_POS -10
+  #define Y_MIN_POS -5
 #elif ENABLED (GTA20)
-#define X_MIN_POS -10   
-#define Y_MIN_POS 0    
+  #define X_MIN_POS -10   
+  #define Y_MIN_POS 0    
 #else 
-#define X_MIN_POS 0        
-#define Y_MIN_POS 0       
+  #define X_MIN_POS 0        
+  #define Y_MIN_POS 0       
 #endif
 
 //Probe offset logic - suggest you mesure yours and adjust as needed. 
 #if DISABLED (MULTIEXTRUDER)
-#define NOZZLE_TO_PROBE_OFFSET { -38, 5, 0 } // Nozzle To Probe offset XYZ A10/A20 
+  #define NOZZLE_TO_PROBE_OFFSET { -38, 5, 0 } // Nozzle To Probe offset XYZ A10/A20 
 #elif ENABLED (MULTIEXTRUDER)
-#define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M+T/A20M+T
+  #define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M+T/A20M+T
 #endif
 
 //Steps selection logic
 #if DISABLED (MULTIEXTRUDER) 
-#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro
+  #define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro
+  //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro
 #endif
 
 #if ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX)
-#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 430, 430 } // geared extruder found on M & T variants
-//#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 2560,430, 430 } // M8 Z rod steps 2560 found on old I3pro
+  #define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 430, 430 } // geared extruder found on M & T variants
+  //#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 2560,430, 430 } // M8 Z rod steps 2560 found on old I3pro
 #endif
 
 #if ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
-#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 430, 430, 430 } // geared extruder found on M & T variants
-//#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 2560,430, 430, 430 } // M8 Z rod steps 2560 found on old I3pro
+  #define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 430, 430, 430 } // geared extruder found on M & T variants
+  //#define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 2560,430, 430, 430 } // M8 Z rod steps 2560 found on old I3pro
 #endif
 
 //Motor direction logic
 #if ENABLED (TMCCHIPS) && DISABLED (MULTIEXTRUDER) || DISABLED (CUSTOM) && ENABLED (MULTIEXTRUDER) 
-#define INVERTE     // Invert E direction disabe if wrong direction - Geared exturders invert E (stock)
+  #define INVERTE     // Invert E direction disabe if wrong direction - Geared exturders invert E (stock)
 #endif
 
 #if ENABLED (TMCCHIPS)
-#define INVERTXYZ   // Invert XYZ direction disable if wrong direction. 
+  #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. 
 #endif
 
 #if ENABLED (CUSTOM)
-//#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
-#define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
+  //#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
+  #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
+#endif
+
+#if MESH_INSET > 0 && MIN_PROBE_EDGE > 0
+  #error Dont Use both MESH_INSET & MIN_PROBE_EDGE at the same time
 #endif
