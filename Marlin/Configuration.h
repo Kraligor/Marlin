@@ -1190,10 +1190,7 @@
 
 // For M851 give a range for adjusting the Z probe offset
 #define Z_PROBE_OFFSET_RANGE_MIN -20
-#define Z_PROBE_OFFSET_RANGE_MAX  0
-
-// Enable the M48 repeatability test to test probe accuracy
-//#define Z_MIN_PROBE_REPEATABILITY_TEST
+#define Z_PROBE_OFFSET_RANGE_MAX  0  //only very rare use case requires z offset + anything
 
 // Before deploy/stow pause for user confirmation
 //#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1228,9 +1225,6 @@
 #define DISABLE_X false
 #define DISABLE_Y false
 #define DISABLE_Z false
-
-// Warn on display about possibly reduced accuracy
-//#define DISABLE_REDUCED_ACCURACY_WARNING
 
 // @section extruder
 
@@ -1495,7 +1489,7 @@
   // Gradually reduce leveling correction until a set height is reached,
   // at which point movement will be level to the machine's XY plane.
   // The height can be set with M420 Z<height>
-  //#define ENABLE_LEVELING_FADE_HEIGHT //results in top and bottom skew best left off
+  //#define ENABLE_LEVELING_FADE_HEIGHT //results in top and bottom skew best disabled
 
   // For Cartesian machines, instead of dividing moves on mesh boundaries,
   // split up moves into short segments like a Delta. This follows the
@@ -1665,7 +1659,7 @@
  *    +-------------->X     +-------------->X     +-------------->Y
  *     XY_SKEW_FACTOR        XZ_SKEW_FACTOR        YZ_SKEW_FACTOR
  */
-//#define SKEW_CORRECTION
+#define SKEW_CORRECTION
 
 #if ENABLED(SKEW_CORRECTION)
   // Input all length measurements here:
@@ -1728,18 +1722,18 @@
 // M100 Free Memory Watcher
 //
 #if DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM201) && DISABLED (GTD200)
-  //#define M100_FREE_MEMORY_WATCHER    // Add M100 (Free Memory Watcher) to debug memory usage
+  #define M100_FREE_MEMORY_WATCHER    // Add M100 (Free Memory Watcher) to debug memory usage
 #endif
 
 //
 // G20/G21 Inch mode support
 //
-//#define INCH_MODE_SUPPORT
+#define INCH_MODE_SUPPORT
 
 //
 // M149 Set temperature units support
 //
-//#define TEMPERATURE_UNITS_SUPPORT
+#define TEMPERATURE_UNITS_SUPPORT
 
 // @section temperature
 
@@ -1769,7 +1763,7 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { X_MIN_POS, Y_MAX_POS , 5 }
+  #define NOZZLE_PARK_POINT { X_MIN_POS, Y_MAX_POS , 20 }
   #define NOZZLE_PARK_XY_FEEDRATE 40    // (mm/s) X and Y axes feedrate (also used for delta Z axis)
   #define NOZZLE_PARK_Z_FEEDRATE  4     // (mm/s) Z axis feedrate (not used for delta printers)
 #endif
@@ -1822,8 +1816,8 @@
   #define NOZZLE_CLEAN_TRIANGLES  5
 
   // Specify positions as { X, Y, Z }
-  #define NOZZLE_CLEAN_START_POINT { X_MIN_POS +10}
-  #define NOZZLE_CLEAN_END_POINT   { X_MIN_POS + 0}
+  #define NOZZLE_CLEAN_START_POINT { (X_MIN_POS +10), (Y_MIN_POS + 0), (Z_MIN_POS + 0)}
+  #define NOZZLE_CLEAN_END_POINT   { (X_MIN_POS + 0), (Y_MIN_POS + 0), (Z_MIN_POS + 0)}
 
   // Circular pattern radius
   #define NOZZLE_CLEAN_CIRCLE_RADIUS 6.5
@@ -1957,7 +1951,7 @@
  * just remove some extraneous menu items to recover space.
  */
 //#define NO_LCD_MENUS
-//#define SLIM_LCD_MENUS
+//#define SLIM_LCD_MENUS   //removes most advanced configuration menus
 
 //
 // ENCODER SETTINGS
@@ -2019,7 +2013,7 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-#define SPEAKER
+#define SPEAKER //if disabled speaker uncontrolled at max volume
 
 //
 // The duration and frequency for the UI feedback sound.
