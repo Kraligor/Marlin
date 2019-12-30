@@ -965,10 +965,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define ACCELERATION 500
-#define DEFAULT_ACCELERATION          ACCELERATION       // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION (ACCELERATION*2)    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   ACCELERATION       // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_ACCELERATION          500       // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  1000      // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   500       // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -1192,7 +1191,7 @@
 
 // For M851 give a range for adjusting the Z probe offset
 #define Z_PROBE_OFFSET_RANGE_MIN -20
-#define Z_PROBE_OFFSET_RANGE_MAX 20
+#define Z_PROBE_OFFSET_RANGE_MAX  0
 
 // Enable the M48 repeatability test to test probe accuracy
 //#define Z_MIN_PROBE_REPEATABILITY_TEST
@@ -1631,8 +1630,8 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (HOMING_FEEDRATE_Z*10)
-#define HOMING_FEEDRATE_Z  (4*60)
+#define HOMING_FEEDRATE_XY 2400
+#define HOMING_FEEDRATE_Z  240
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -1749,12 +1748,12 @@
 #define PREHEAT_1_LABEL       "PLA"
 #define PREHEAT_1_TEMP_HOTEND  200
 #define PREHEAT_1_TEMP_BED      60
-#define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
+#define PREHEAT_1_FAN_SPEED      0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "PETG"
 #define PREHEAT_2_TEMP_HOTEND  250
 #define PREHEAT_2_TEMP_BED      70
-#define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
+#define PREHEAT_2_FAN_SPEED      0 // Value from 0 to 255
 
 /**
  * Nozzle Park
@@ -1772,8 +1771,8 @@
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
   #define NOZZLE_PARK_POINT { X_MIN_POS, Y_MAX_POS , 5 }
-  #define NOZZLE_PARK_XY_FEEDRATE (HOMING_FEEDRATE_XY / 60)     // (mm/s) X and Y axes feedrate (also used for delta Z axis)
-  #define NOZZLE_PARK_Z_FEEDRATE  (HOMING_FEEDRATE_Z / 60)      // (mm/s) Z axis feedrate (not used for delta printers)
+  #define NOZZLE_PARK_XY_FEEDRATE 40    // (mm/s) X and Y axes feedrate (also used for delta Z axis)
+  #define NOZZLE_PARK_Z_FEEDRATE  4     // (mm/s) Z axis feedrate (not used for delta printers)
 #endif
 
 /**
