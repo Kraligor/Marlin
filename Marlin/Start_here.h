@@ -50,16 +50,16 @@
  
 //(Step 4) enable 1 probe type or none for manual (stock)
 #define TOUCHPROBE  // Enable Bltouch Type Probe
-//#define FMP         // Enable Fixed Mounted Type Probe
+#define FMP         // Enable Fixed Mounted Type Probe
 
-//Options
-//#define BEDCLIPS              // Enabled if you have bed clips to avoid manual or probe
-#define MULTIPLE_PROBING 3        // Probe # times take the average
-#define Z_PROBE_SPEED_SLOW 240 // Probe speed reduce if accuracy is poor
+//UBL Options
+//#define BEDCLIPS               // Enabled if you have bed clips to avoid manual or probe
+#define MULTIPLE_PROBING 3       // Probe # times take the average
+#define Z_PROBE_SPEED_SLOW 240   // Probe speed reduce if accuracy is poor
 
-//-----------------------------------
-//logic used to reduce setup steps. |
-//-----------------------------------
+//----------------------------------//
+//logic used to reduce setup steps. //
+//----------------------------------//
 
 //Simplify some variables
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
