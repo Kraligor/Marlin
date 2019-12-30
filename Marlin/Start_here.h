@@ -53,9 +53,7 @@
 //#define FMP         // Enable Fixed Mounted Type Probe
 
 //UBL Options
-//#define BEDCLIPS               // Enabled if you have bed clips to avoid manual or probe
-#define MULTIPLE_PROBING 3       // Probe # times take the average
-#define Z_PROBE_SPEED_SLOW 240   // Probe speed reduce if accuracy is poor
+//#define BEDCLIPS    // Enabled if you have bed clips to avoid manual or probe
 
 //----------------------------------//
 //logic used to reduce setup steps. //
