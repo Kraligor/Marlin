@@ -69,7 +69,7 @@
 #endif
 
 #if ANY(MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
-#define DIRECTDRIVE
+  #define DIRECTDRIVE
 #endif
 
 //Bed clip logic - use mesh inset or min probe edge to avoid clips not both

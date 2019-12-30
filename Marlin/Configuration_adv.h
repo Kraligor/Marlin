@@ -259,17 +259,17 @@
  * Also, if the temperature is set to a value below mintemp, it will not be changed by autotemp.
  * On an Ultimaker, some initial testing worked with M109 S215 B260 F1 in the start.gcode
  */
-//#define AUTOTEMP
+#define AUTOTEMP
 #if ENABLED(AUTOTEMP)
   #define AUTOTEMP_OLDWEIGHT 0.98
 #endif
 
 // Show extra position information with 'M114 D'
-//#define M114_DETAIL
+#define M114_DETAIL
 
 // Show Temperature ADC value
 // Enable for M105 to include ADC values read from temperature sensors.
-//#define SHOW_TEMP_ADC_VALUES
+#define SHOW_TEMP_ADC_VALUES
 
 /**
  * High Temperature Thermistor Support
@@ -1614,7 +1614,7 @@
 #endif
 
 // Add M575 G-code to change the baud rate
-//#define BAUD_RATE_GCODE
+#define BAUD_RATE_GCODE
 
 #if ENABLED(SDSUPPORT)
   // Enable this option to collect and display the maximum
