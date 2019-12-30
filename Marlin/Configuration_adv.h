@@ -2613,7 +2613,7 @@
 
 #if ENABLED (PROBE_MANUALLY)
   #define USER_DESC_1 "Manual UBL" //Use nozzle & paper to setup UBL
-  #define USER_GCODE_1 "G28\nG29 P4 R250\nG29 A\nM500"
+  #define USER_GCODE_1 "G28\nG29 P4 R255\nG29 A\nM500"
 
   #define USER_DESC_2 "Adjust Point Near" //Adjust nearest mesh point
   #define USER_GCODE_2 "G29 P4\nM500"
@@ -2648,7 +2648,7 @@
   #define USER_GCODE_1 "G28\nG29 P1\nG29 P3\nG29 A\nM500"
 
   #define USER_DESC_2 "Manual UBL" //Use nozzle & paper to setup UBL
-  #define USER_GCODE_2 "G28\nG29 P4 R250\nG29 A\nM500"
+  #define USER_GCODE_2 "G28\nG29 P4 R255\nG29 A\nM500"
 
   #define USER_DESC_3 "Adjust Point Near" //Adjust nearest mesh point
   #define USER_GCODE_3 "G29 P4\nM500"
