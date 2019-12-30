@@ -50,7 +50,7 @@
  
 //(Step 4) enable 1 probe type or none for manual (stock)
 #define TOUCHPROBE  // Enable Bltouch Type Probe
-#define FMP         // Enable Fixed Mounted Type Probe
+//#define FMP         // Enable Fixed Mounted Type Probe
 
 //UBL Options
 //#define BEDCLIPS               // Enabled if you have bed clips to avoid manual or probe
