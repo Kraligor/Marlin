@@ -1924,7 +1924,7 @@
  */
 #if ENABLED (GTA30) || ENABLED (GTE180) || ENABLED (GTD200) || ENABLED (GTM201)
   #define SDIO_SUPPORT
-  #define SDSUPPORT
+  //#define SDSUPPORT
 #endif
 
 //#endif
